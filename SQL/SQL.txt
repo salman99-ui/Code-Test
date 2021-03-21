@@ -1,0 +1,8 @@
+#get best seller
+No.1 ) select name , MAX(sold) from product GROUP BY category
+
+#get customer spends the most money
+No.2 ) select * from customer where customer_id = ( SELECT customer_id from transaction WHERE total_price = ( SELECT MAX(total_price) from transaction ) LIMIT 1 )
+
+#show number of transaction
+No.3 ) SELECT COUNT(tanggal) from transaction WHERE tanggal BETWEEN DATE_ADD(Now() , INTERVAL -2 HOUR) and NOW()
